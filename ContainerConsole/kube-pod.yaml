@@ -1,0 +1,14 @@
+# kubectl apply -f kube-pod.yaml
+# kubectl logs container-console-pod --follow
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: container-console-pod
+spec:
+  containers:
+    - name: container-console
+      image: acrawdemo.azurecr.io/container-console:latest
+      imagePullPolicy: IfNotPresent
+  imagePullSecrets:
+    - name: aw-acr-demo-secret
